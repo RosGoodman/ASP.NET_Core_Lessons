@@ -35,9 +35,9 @@ namespace Wpf.Examples
                 var result = await LongOperation(50, Progress: progress, Cancel: cts.Token);
                 ResultTextBlock.Text = result;
             }
-            catch(OperationCanceledException ex)
+            catch (OperationCanceledException ex)
             {
-                ResultTextBlock.Text = "Операция отменена."; 
+                ResultTextBlock.Text = "Операция отменена.";
             }
 
             ((IProgress<double>)progress).Report(0);
@@ -49,8 +49,8 @@ namespace Wpf.Examples
         }
 
         private async Task<string> LongOperation(
-            int Timeout, int Count=100, 
-            IProgress<double>? Progress = default, 
+            int Timeout, int Count = 100,
+            IProgress<double>? Progress = default,
             CancellationToken Cancel = default)
         {
             Cancel.ThrowIfCancellationRequested();
